@@ -18,6 +18,10 @@ impl Span {
         }
     }
 
+    pub fn new_single(position: Location) -> Span {
+        Self::new_length(position, 1)
+    }
+
     pub fn start(&self) -> Location {
         self.start.clone()
     }

@@ -1,6 +1,7 @@
 use crate::common::text::{location::Location, Source};
 
 pub mod token;
+pub mod lex;
 
 pub struct Lexer {
     source: Source,

@@ -14,6 +14,8 @@ pub enum TokenKind {
     Unsigned(u64),
     Signed(i64),
 
+    Plus, Minus, Slash, Star,
+    
     Meta
 }
 
