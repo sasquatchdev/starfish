@@ -1,6 +1,7 @@
 use crate::{common::text::{location::Location, span::Span, Source}, lexer::{token::Token, Lexer}};
 
 pub mod node;
+pub mod parse;
 
 pub struct Parser {
     source: Source,

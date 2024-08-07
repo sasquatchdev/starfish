@@ -1,6 +1,6 @@
 #[derive(Debug, Clone)]
 pub enum Flag {
-    None, 
+    None,
     Suppressed,
 
     Information(String),

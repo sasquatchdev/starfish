@@ -37,8 +37,8 @@ impl Node {
         Self::new(span, Flag::None, lexeme, kind)
     }
 
-    pub fn new_meta(location: Location, flag: Flag) -> Self {
-        Self::new(Span::new_single(location), flag, String::new(), NodeKind::Meta)
+    pub fn new_meta(span: Span, flag: Flag) -> Self {
+        Self::new(span, flag, String::new(), NodeKind::Meta)
     }
 
     pub fn span(&self) -> &Span {
