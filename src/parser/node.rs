@@ -4,7 +4,6 @@ use crate::common::{flag::Flag, text::{location::Location, span::Span}};
 pub struct Node {
     span: Span,
     flag: Flag,
-    lexeme: String,
     kind: NodeKind,
 }
 
@@ -24,21 +23,20 @@ pub enum NodeKind {
 }
 
 impl Node {
-    pub fn new(span: Span, flag: Flag, lexeme: String, kind: NodeKind) -> Self {
+    pub fn new(span: Span, flag: Flag, kind: NodeKind) -> Self {
         Self {
             span,
             flag,
-            lexeme,
             kind,
         }
     }
 
-    pub fn new_simple(span: Span, lexeme: String, kind: NodeKind) -> Self {
-        Self::new(span, Flag::None, lexeme, kind)
+    pub fn new_simple(span: Span, kind: NodeKind) -> Self {
+        Self::new(span, Flag::None, kind)
     }
 
     pub fn new_meta(span: Span, flag: Flag) -> Self {
-        Self::new(span, flag, String::new(), NodeKind::Meta)
+        Self::new(span, flag, NodeKind::Meta)
     }
 
     pub fn span(&self) -> &Span {
@@ -46,9 +44,6 @@ impl Node {
     }
     pub fn flag(&self) -> &Flag {
         &self.flag
-    }
-    pub fn lexeme(&self) -> &str {
-        &self.lexeme
     }
     pub fn kind(&self) -> &NodeKind {
         &self.kind

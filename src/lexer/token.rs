@@ -8,7 +8,7 @@ pub struct Token {
     flag: Flag,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum TokenKind {
     Floating(f64),
     Unsigned(u64),
