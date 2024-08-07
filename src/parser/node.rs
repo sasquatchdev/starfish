@@ -10,4 +10,13 @@ pub struct Node {
 
 #[derive(Debug, Clone)]
 pub enum NodeKind {
+    Floating(f64),
+    Unsigned(u64),
+    Signed(i64),
+
+    BinaryExpr {
+        left: Box<Node>,
+        right: Box<Node>,
+        operator: String,
+    },
 }
