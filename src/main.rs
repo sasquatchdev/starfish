@@ -5,6 +5,7 @@ use lexer::Lexer;
 
 mod common;
 mod lexer;
+mod parser;
 
 fn main() {
     let text = "1 + 1 - 2.3 * 4 / 5".to_string(); // Should equal 0.16

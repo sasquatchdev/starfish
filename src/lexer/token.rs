@@ -1,11 +1,11 @@
-use crate::common::text::span::Span;
+use crate::common::{flag::Flag, text::span::Span};
 
 #[derive(Debug, Clone)]
 pub struct Token {
     span: Span,
     lexeme: String,
     kind: TokenKind,
-    flag: TokenFlag,
+    flag: Flag,
 }
 
 #[derive(Debug, Clone)]
@@ -19,21 +19,12 @@ pub enum TokenKind {
     Meta
 }
 
-#[derive(Debug, Clone)]
-pub enum TokenFlag {
-    None,
-    Info(String),
-    Warn(String),
-    Error(String),
-    Fatal(String),
-}
-
 impl Token {
-    pub fn new(span: Span, lexeme: String, kind: TokenKind, flag: TokenFlag) -> Self {
+    pub fn new(span: Span, lexeme: String, kind: TokenKind, flag: Flag) -> Self {
         Token { span, lexeme, kind, flag }
     }
     
-    pub fn new_meta(span: Span, flag: TokenFlag) -> Self {
+    pub fn new_meta(span: Span, flag: Flag) -> Self {
         Token { span, flag, lexeme: String::new(), kind: TokenKind::Meta }
     }
 
@@ -49,7 +40,7 @@ impl Token {
         self.kind.clone()
     }
 
-    pub fn flag(&self) -> TokenFlag {
+    pub fn flag(&self) -> Flag {
         self.flag.clone()
     }
 }
